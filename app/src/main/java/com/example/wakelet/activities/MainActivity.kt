@@ -1,7 +1,8 @@
-package com.example.wakelet
+package com.example.wakelet.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.wakelet.R
 
 class MainActivity : AppCompatActivity() {
 
