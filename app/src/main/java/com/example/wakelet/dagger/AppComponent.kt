@@ -1,10 +1,7 @@
 package com.example.wakelet.dagger
 
 import com.example.wakelet.WakeletApplication
-import com.example.wakelet.dagger.modules.AppModule
-import com.example.wakelet.dagger.modules.RepositoryBindingsModule
-import com.example.wakelet.dagger.modules.ServiceBindingsModule
-import com.example.wakelet.dagger.modules.UseCaseBindingsModule
+import com.example.wakelet.dagger.modules.*
 import dagger.Component
 import javax.inject.Singleton
 import dagger.android.AndroidInjectionModule
@@ -15,7 +12,8 @@ import dagger.android.AndroidInjectionModule
     AndroidInjectionModule::class,
     AppModule::class,
     RepositoryBindingsModule::class,
-    UseCaseBindingsModule::class
+    UseCaseBindingsModule::class,
+    FragmentInjectorsModule::class
 ])
 interface AppComponent {
     fun inject(application: WakeletApplication)

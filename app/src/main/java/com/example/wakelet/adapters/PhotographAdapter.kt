@@ -1,10 +1,13 @@
 package com.example.wakelet.adapters
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wakelet.R
 import com.example.wakelet.models.Photograph
 
 class PhotographAdapter(
@@ -18,13 +21,18 @@ class PhotographAdapter(
             oldItem == newItem
     }
 
-    class PhotographViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-    override fun onBindViewHolder(holder: PhotographViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    class PhotographViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val description: TextView = itemView.findViewById(R.id.description)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotographViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_photograph_item, parent, false)
+        return PhotographViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: PhotographViewHolder, position: Int) {
+        val item = getItem(position)
+
+        holder.description.text = item.description
     }
 }
