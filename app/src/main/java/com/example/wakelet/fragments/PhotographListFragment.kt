@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.wakelet.R
 import com.example.wakelet.adapters.PhotographAdapter
 import com.example.wakelet.usecases.GetPhotographsUseCase
@@ -43,9 +42,15 @@ class PhotographListFragment : BaseFragment() {
     }
 
     private fun getPhotographs() {
-        // todo: do not block
-        val photographs = getPhotographsUseCase.invoke().blockingGet()
+        val disposable = getPhotographsUseCase.invoke()
+            .subscribe(
+                { photographs ->
+                    adapter.submitList(photographs)
+                },
+                {
+                    // todo: handle errors
+                })
 
-        adapter.submitList(photographs)
+        disposables.add(disposable)
     }
 }

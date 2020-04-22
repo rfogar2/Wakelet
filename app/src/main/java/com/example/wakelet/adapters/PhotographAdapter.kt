@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,7 @@ class PhotographAdapter(
     }
 
     class PhotographViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val container: ConstraintLayout = itemView.findViewById(R.id.container)
         val description: TextView = itemView.findViewById(R.id.description)
     }
 
@@ -31,8 +33,9 @@ class PhotographAdapter(
     }
 
     override fun onBindViewHolder(holder: PhotographViewHolder, position: Int) {
-        val item = getItem(position)
+        val photograph = getItem(position)
 
-        holder.description.text = item.description
+        holder.container.setOnClickListener { onClick(photograph) }
+        holder.description.text = photograph.description
     }
 }
