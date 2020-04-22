@@ -31,4 +31,10 @@ class PhotographDetailFragment : Fragment() {
         name.text = args.photograph.name
         bio.text = args.photograph.bio
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        activity?.title = args.photograph.name
+    }
 }

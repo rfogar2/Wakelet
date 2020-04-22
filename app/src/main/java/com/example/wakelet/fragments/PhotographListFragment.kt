@@ -38,6 +38,12 @@ class PhotographListFragment : BaseFragment() {
         getPhotographs()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        activity?.setTitle(R.string.app_name)
+    }
+
     private fun setupRefreshLayout() {
         refresh_layout.setOnRefreshListener(::getPhotographs)
     }
