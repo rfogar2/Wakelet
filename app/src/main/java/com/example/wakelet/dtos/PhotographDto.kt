@@ -1,4 +1,4 @@
-package dtos
+package com.example.wakelet.dtos
 
 import com.squareup.moshi.JsonClass
 

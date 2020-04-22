@@ -1,13 +1,11 @@
 package com.example.wakelet
 
-import com.example.wakelet.services.PhotographService
 import com.example.wakelet.services.PhotographServiceImpl
 import com.example.wakelet.stubs.ResourceWrapperStub
-import dtos.PhotographDto
+import com.example.wakelet.dtos.PhotographDto
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import kotlin.math.exp
 
 class PhotographServiceTest {
     private lateinit var resourceWrapperStub: ResourceWrapperStub

@@ -5,9 +5,8 @@ import com.example.wakelet.wrappers.ResourcesWrapper
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
-import dtos.PhotographDto
+import com.example.wakelet.dtos.PhotographDto
 import io.reactivex.Single
-import java.io.StringWriter
 import java.lang.reflect.Type
 import javax.inject.Inject
 
