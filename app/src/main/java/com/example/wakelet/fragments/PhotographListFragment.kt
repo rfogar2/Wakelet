@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.wakelet.R
 import com.example.wakelet.adapters.PhotographAdapter
@@ -65,7 +66,7 @@ class PhotographListFragment : BaseFragment() {
                     adapter.submitList(photographs)
                 },
                 {
-                    // todo: handle errors
+                    Toast.makeText(context, R.string.An_error_occurred, Toast.LENGTH_LONG).show()
                 })
 
         disposables.add(disposable)
