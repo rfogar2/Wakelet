@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.wakelet.R
 import com.example.wakelet.adapters.PhotographAdapter
 import com.example.wakelet.usecases.GetPhotographsUseCase
@@ -43,7 +44,7 @@ class PhotographListFragment : BaseFragment() {
 
     private fun setupRecyclerView() {
         adapter = PhotographAdapter { photograph ->
-            // todo: open detail view
+            findNavController().navigate(PhotographListFragmentDirections.viewDetail(photograph))
         }
     }
 

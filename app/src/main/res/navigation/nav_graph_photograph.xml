@@ -25,6 +25,13 @@
     <fragment
         android:id="@+id/photograph_detail_fragment"
         android:name="com.example.wakelet.fragments.PhotographDetailFragment"
-        tools:layout="@layout/fragment_photograph_detail" />
+        tools:layout="@layout/fragment_photograph_detail" >
+
+        <argument
+            android:name="photograph"
+            app:argType="com.example.wakelet.models.Photograph"
+            app:nullable="false" />
+
+    </fragment>
 
 </navigation>
