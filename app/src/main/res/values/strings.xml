@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Wakelet</string>
+    <string name="photo_image_content_description">Photograph image</string>
 </resources>
