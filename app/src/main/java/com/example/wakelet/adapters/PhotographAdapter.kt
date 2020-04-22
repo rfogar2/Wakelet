@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -27,8 +28,8 @@ class PhotographAdapter(
     }
 
     class PhotographViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val container: ConstraintLayout = itemView.findViewById(R.id.container)
-        val description: TextView = itemView.findViewById(R.id.description)
+        val container: CardView = itemView.findViewById(R.id.container)
+        val name: TextView = itemView.findViewById(R.id.name)
         val image: ImageView = itemView.findViewById(R.id.image)
     }
 
@@ -41,7 +42,7 @@ class PhotographAdapter(
         val photograph = getItem(position)
 
         holder.container.setOnClickListener { onClick(photograph) }
-        holder.description.text = photograph.description
+        holder.name.text = photograph.name
 
         Glide.with(holder.image.context)
             .load(photograph.image)
