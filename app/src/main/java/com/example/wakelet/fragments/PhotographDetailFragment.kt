@@ -44,6 +44,7 @@ class PhotographDetailFragment : Fragment() {
     }
 
     private fun getPhotographs() {
+        // todo: do not block
         val photographs = getPhotographsUseCase.invoke().blockingGet()
 
         adapter.submitList(photographs)
