@@ -26,5 +26,9 @@ class PhotographDetailFragment : Fragment() {
             .load(args.photograph.image)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(image)
+
+        description.text = args.photograph.description
+        name.text = args.photograph.name
+        bio.text = args.photograph.bio
     }
 }
