@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.example.wakelet.R
 import com.example.wakelet.adapters.PhotographAdapter
 import com.example.wakelet.usecases.GetPhotographsUseCase
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_photograph_list.*
 import javax.inject.Inject
 
@@ -31,8 +32,13 @@ class PhotographListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRefreshLayout()
         setupRecyclerView()
         getPhotographs()
+    }
+
+    private fun setupRefreshLayout() {
+        refresh_layout.setOnRefreshListener(::getPhotographs)
     }
 
     private fun setupRecyclerView() {
@@ -42,7 +48,11 @@ class PhotographListFragment : BaseFragment() {
     }
 
     private fun getPhotographs() {
+        refresh_layout.isRefreshing = true
+
         val disposable = getPhotographsUseCase.invoke()
+            .doAfterTerminate { refresh_layout.isRefreshing = false }
+            .subscribeOn(Schedulers.io())
             .subscribe(
                 { photographs ->
                     adapter.submitList(photographs)
